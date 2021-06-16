@@ -86,6 +86,10 @@ RSpec.describe TrainYard do
       expect(@train_yard.total_inventory).to eq(expected)
     end
 
+    it 'can return cars that have more than 10' do
+      expect(@train_yard.cars_more_than_10).to eq([@car1])
+    end
+
     it 'can return overflow cars' do
       expect(@train_yard.overflow_cars).to eq([@car1])
     end
