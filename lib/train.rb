@@ -20,4 +20,8 @@ class Train
       car.weight * count
     end
   end
+
+  def unload_car(car, amount)
+    @cargo[car] -= amount
+  end
 end
