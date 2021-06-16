@@ -44,22 +44,15 @@ class TrainYard
   end
 
   def cars_more_than_10
-    cars = []
-    total_inventory.each do |car, amount|
-      if amount > 10
-        cars << car
-      end
+    list = total_inventory.select do |car, amount|
+      amount > 10
     end
-    cars
+    list.keys
   end
 
   def overflow_cars
-    cars = []
-    cars_more_than_10.each do |car|
-      if trains_containing(car).length > 1
-        cars << car
-      end
+    cars_more_than_10.select do |car|
+      trains_containing(car).length > 1
     end
-    cars
   end
 end
